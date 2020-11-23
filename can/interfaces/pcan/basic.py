@@ -513,12 +513,12 @@ class PCANBasic:
           A touple with three values
         """
         try:
-            if platform.system() == 'Darwin':
-                msg = TPCANMsgMac()
-                timestamp = TPCANTimestampMac()
-            else:
-                msg = TPCANMsg()
-                timestamp = TPCANTimestamp()
+            #if platform.system() == 'Darwin':
+            #    msg = TPCANMsgMac()
+            #    timestamp = TPCANTimestampMac()
+            #else:
+            msg = TPCANMsg()
+            timestamp = TPCANTimestamp()
             res = self.__m_dllBasic.CAN_Read(Channel,byref(msg),byref(timestamp))
             return TPCANStatus(res),msg,timestamp
         except:
@@ -547,10 +547,10 @@ class PCANBasic:
           A touple with three values
         """
         try:
-            if platform.system() == 'Darwin':
-                msg = TPCANMsgFDMac()
-            else:
-                msg = TPCANMsgFD()
+            #if platform.system() == 'Darwin':
+            #    msg = TPCANMsgFDMac()
+            #else:
+            msg = TPCANMsgFD()
             timestamp = TPCANTimestampFD()
             res = self.__m_dllBasic.CAN_ReadFD(Channel,byref(msg),byref(timestamp))
             return TPCANStatus(res),msg,timestamp
