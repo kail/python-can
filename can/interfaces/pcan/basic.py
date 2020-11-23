@@ -301,7 +301,7 @@ class TPCANMsgMac (Structure):
     """
     Represents a PCAN message
     """
-    _fields_ = [ ("ID",      c_ulong),          # 11/29-bit message identifier - was changed from u_uint to c_ulong, so it is compatible with the PCAN-USB Driver for macOS
+    _fields_ = [ ("ID",      c_uint),           # 11/29-bit message identifier - was changed from u_uint to c_ulong, so it is compatible with the PCAN-USB Driver for macOS
                  ("MSGTYPE", TPCANMessageType), # Type of the message
                  ("LEN",     c_ubyte),          # Data Length Code of the message (0..8)
                  ("DATA",    c_ubyte * 8) ]     # Data of the message (DATA[0]..DATA[7])
